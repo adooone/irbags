@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import '../../sass/main.sass';
 import Header from './Header/header';
 import Content from './Content/content';
+import Bar from './Bar/bar';
 
 
 const Markup = () => {
@@ -11,6 +12,7 @@ const Markup = () => {
         <div className='markup'>
             <Header />
             <Content />
+            <Bar />
         </div>
     );
 };

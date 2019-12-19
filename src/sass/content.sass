@@ -1,7 +1,28 @@
 .Content
-    @extend .flex_center
-    height: 100%
+    @extend .flex_space_center
+    height: 60vh
     width: 100%
-    .label
-        opacity: .4
-        font-size: 16px
+    .Home
+        @extend .flex_space_center
+        height: 100%
+        width: 100%
+        .label
+            .caption
+                font-size: 45px
+                font-weight: bold
+            .info
+                margin-top: 18px
+                font-size: 22px
+                opacity: .6
+                width: 300px
+            .inspired
+                margin-top: 6px
+                margin-bottom: 60px
+                font-size: 22px
+                font-weight: bold
+                opacity: .7
+        .home_image
+            position: absolute
+            height: 75vh
+            right: 100px
+            bottom: 100px

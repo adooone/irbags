@@ -1,10 +1,15 @@
+import Logo from '../../Helpers/Logo/logo';
+
 // import PropTypes from 'prop-types';
 // import classnames from 'classnames';
 
 const Header = () => {
     return (
         <header>
-            <div className='hello'>React Template</div>
+            <section className='logo_section'>
+                <Logo />
+                <div className='name'>Inna Rybachuk</div>
+            </section>
         </header>
     );
 };
