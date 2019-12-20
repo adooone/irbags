@@ -59,12 +59,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/public/', 'index.html'),
             filename: 'index.html',
+            favicon: path.resolve(__dirname, '../src/public/', 'favicon.ico'),
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             _: 'lodash',
             React: 'react',
             ReactDOM: 'react-dom',
+            THREE: 'three',
         }),
     ],
 };

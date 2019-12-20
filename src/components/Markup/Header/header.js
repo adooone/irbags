@@ -1,4 +1,5 @@
 import Logo from '../../Helpers/Logo/logo';
+import Menu from './Menu/menu';
 
 // import PropTypes from 'prop-types';
 // import classnames from 'classnames';
@@ -10,6 +11,7 @@ const Header = () => {
                 <Logo />
                 <div className='name'>Inna Rybachuk</div>
             </section>
+            <Menu />
         </header>
     );
 };

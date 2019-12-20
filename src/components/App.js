@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import backgraundSrc from '../public/img/background.jpg';
@@ -6,12 +7,23 @@ import Markup from './Markup/markup';
 import Loader from './Helpers/Loader/loader';
 
 
-const App = ({ loading }) => (
-    <>
-        { loading && <Loader /> }
-        <Markup />
-    </>
-);
+const App = ({ loading }) => {
+    const didMount = () => {
+        console.log('mounted');
+        window.onload = () => {
+            console.log('all is loaded!');
+        };
+    };
+
+    useEffect(didMount, []);
+
+    return (
+        <>
+            { loading && <Loader /> }
+            <Markup />
+        </>
+    );
+};
 
 App.propTypes = {
     loading: PropTypes.bool.isRequired,

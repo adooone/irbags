@@ -19,7 +19,8 @@
     "globals": {
         "React": true,
         "ReactDOM": true,
-        "_": true
+        "_": true,
+        "THREE": true
     },
     "parser": "babel-eslint"
 }
