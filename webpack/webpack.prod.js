@@ -65,6 +65,7 @@ module.exports = {
             _: 'lodash',
             React: 'react',
             ReactDOM: 'react-dom',
+            THREE: 'three',
         }),
     ],
 };
