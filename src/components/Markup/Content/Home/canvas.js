@@ -120,7 +120,8 @@ const HomeCanvas = (() => {
     };
 
     const render = () => {
-        const time = Date.now() * 0.00005;
+        const time = Date.now() * -0.00005;
+        const timex = Date.now() * 0.00001;
         // camera.position.x += (mouseX - camera.position.x) * 0.03;
         // camera.position.y += (-mouseY - camera.position.y) * 0.03;
         camera.lookAt(scene.position);
@@ -128,6 +129,8 @@ const HomeCanvas = (() => {
             const object = scene.children[i];
             if (object instanceof THREE.Points) {
                 object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
+                object.rotation.x = timex * (i < 4 ? i + 1 : -(i + 1));
+                // object.rotation.z = time * (i < 4 ? i + 1 : -(i + 1));
             }
         }
         // for (let i = 0; i < materials.length; i++) {
@@ -139,7 +142,6 @@ const HomeCanvas = (() => {
     };
 
     const start = () => {
-        console.log('home canvas');
         // init();
         snowInit();
         function animate() {

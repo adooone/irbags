@@ -1,34 +1,93 @@
 .Content
     @extend .flex_space_center
-    height: 60vh
+    @media #{$media_phones}
+        height: 100%
+    // height: 60vh
     width: 100%
+    // position: relative
     .Home
         @extend .flex_space_center
+        @media #{$media_phones}
+            align-items: flex-end
+            padding-bottom: 100px
         height: 100%
         width: 100%
         .label
+            @media #{$media_phones}
+                width: 100%
+                display: flex
+                flex-direction: column
+                align-items: center
             .caption
+                @media #{$media_large}
+                    font-size: 48px
+                @media #{$media_phones}
+                    font-size: 28px
                 font-size: 36px
                 font-weight: bold
             .info
+                @media #{$media_large}
+                    font-size: 21px
+                    margin-top: 24px
+                @media #{$media_phones}
+                    text-align: center
+                    font-size: 14px
+                    width: 250px
                 margin-top: 18px
                 font-size: 16px
                 opacity: .6
                 width: 300px
             .inspired
+                @media #{$media_large}
+                    font-size: 21px
+                    margin-top: 8px
+                @media #{$media_phones}
+                    font-size: 14px
                 margin-top: 6px
                 margin-bottom: 60px
                 font-size: 16px
                 font-weight: bold
                 opacity: .7
         .home_image
+            @media #{$media_large}
+                height: 90vh
+                bottom: -50px
+            @media #{$media_normal}
+                height: 100vh
+                width: 80vw
+                right: 0
+                bottom: -50px
+            @media #{$media_small}
+                height: 100vh
+                width: 80vw
+                right: 0
+                bottom: -50px
+            @media #{$media_phones}
+                height: 400px
+                width: 400px
+                top: 100px
+                left: 0
             position: absolute
             height: 80vh
+            width: 70vw
             right: 100px
             bottom: 50px
             z-index: -100
-        #home_canvas
-            height: 80vh
-            width: 100%
+            img
+                object-fit: contain
+                width: 100%
+                height: 100%
+        #radial_g
+            @media #{$media_phones}
+                background: radial-gradient(circle, rgba(2,0,36,0) 0%, $default 100%)
             position: absolute
+            left: 0
+            height: 100vh
+            width: 100vw
+            background: $default
+            background: radial-gradient(circle farthest-side at 60%, rgba(2,0,36,0) 20%, $default 100%)
+            z-index: -49
+        #home_canvas
+            position: absolute
+            left: 0
             z-index: -50

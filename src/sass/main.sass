@@ -4,16 +4,23 @@
 @import 'header'
 @import 'loader'
 @import 'elements'
+@import 'store'
+@import 'contacts'
 
 body
     margin: 0
     padding: 0
     font-family: 'Josefin Slab', sans
+    @media #{$media_large}
+        font-size: 19px
     font-size: 14px
     background-color: $default
     color: $primary
+    overflow: hidden
     button
         font-family: 'Josefin Slab', sans
+        @media #{$media_large}
+            font-size: 21px
         font-size: 16px
         font-weight: bold
         margin: 5px
@@ -21,20 +28,42 @@ body
         background: none
     #root
         height: 100vh
+        overflow: hidden
 
         .markup
+            @media #{$media_large}
+                // padding: 120px 300px
+                padding: 120px 160px
+            @media #{$media_normal}
+                // padding: 90px 120px
+                padding: 90px 100px
+            @media #{$media_small}
+                // padding: 70px 100px
+                padding: 70px
+            @media #{$media_phones}
+                // padding: 40px
+                padding: 40px
             box-sizing: border-box
             width: 100%
             height: 100%
-            padding: 100px 150px
+            padding: 80px 150px
             @extend .flex_space_center
             flex-direction: column
             .bar
+                @media #{$media_phones}
+                    justify-content: center
                 width: 100%
                 height: 40px
                 display: flex
                 align-items: center
                 justify-content: space-between
+                z-index: 500
+                &.blurred
+                    .bar_name_container
+                        opacity: .8
+                        color: $default
+                    .Pagination
+                        opacity: 0
                 .bar_name_container
                     display: flex
                     div
@@ -44,3 +73,4 @@ body
                         text-transform: uppercase
                     .bar_rights
                         opacity: .4
+                .Pagination

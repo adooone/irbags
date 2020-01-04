@@ -1,5 +1,37 @@
 .Loader
-    width: 100%
-    height: 100%
+    width: 100vw
+    height: 100vh
     position: absolute
-    z-index: 999
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background: white
+    font-size: 50px
+    font-weight: 600
+    // z-index: -1
+    img
+      @media #{$media_phones}
+        height: 300px
+    .load_text
+        @media #{$media_phones}
+          font-size: 18px
+        font-size: 30px
+        font-weight: bold
+        opacity: 0
+        animation-name: loading_text
+        animation-duration: .5s
+        animation-fill-mode: forwards
+        -webkit-animation-name: loading_text;
+        -webkit-animation-duration: .5s;
+        -webkit-animation-fill-mode: forwards;
+        // animation: .4s ease loading_text
+        animation-delay: 1s
+
+@keyframes loading_text
+  0%
+    transform: translateY(30px)
+    opacity: 0
+  100%
+    transform: translateY(0px)
+    opacity: 1

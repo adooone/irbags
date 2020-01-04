@@ -1,0 +1,114 @@
+.StoreBook
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    background: $default
+    z-index: 100
+    // padding: 120px 150px
+    box-sizing: border-box
+    // @media #{$media_large}
+    //     padding: 160px 300px
+    // @media #{$media_normal}
+    //     padding: 130px 120px
+    // @media #{$media_small}
+    //     padding: 110px 100px
+    // @media #{$media_phones}
+    //     padding: 40px
+    // position: absolute
+    .Page
+        height: 100%
+        // width: 50%
+        display: flex
+        // justify-content: space-between
+        align-items: flex-start
+        flex-direction: column
+        // padding: 20px 0
+        box-sizing: border-box
+        &.left
+            width: 40%
+            .scroller
+                height: 100%
+        &.right
+            width: 60%
+            padding-top: 160px
+            .scroller
+                height: 100%
+                width: 100%
+                overflow: scroll
+        .caption
+            display: flex
+            align-items: center
+            min-height: 40px
+            width: 100%
+            padding: 0 100px
+            height: 40px
+            // margin-top: 20px
+            font-weight: bold
+            font-size: 24px
+
+
+        .PageView
+            display: flex
+            // height: 100%
+            width: 100%
+            // margin: 10px 0
+            box-sizing: border-box
+            &.primary
+                background-color: transparentize($primary, .92)
+            &.secondary
+                background-color: transparentize($secondary, .92)
+            &.info
+                flex-direction: row
+                margin: 20px 0
+                padding: 0 160px 0 100px
+            &.image
+                flex-direction: column
+                height: 100%
+            &.reversed
+                // flex-direction: row-reverse
+            .image_info
+                width: 240px
+                min-width: 240px
+                height: 240px
+                border: 1px solid black
+                img
+                    object-fit: cover
+                    width: 100%
+                    height: 100%
+            .info_group
+                // width: 50%
+                height: 240px
+                display: flex
+                flex-direction: column
+                padding-left: 30px
+                box-sizing: border-box
+                align-items: flex-start
+                justify-content: center
+
+                .caption_info
+                    font-size: 22px
+                    font-weight: bold
+                    white-space: nowrap
+                    margin-bottom: 10px
+                .text_info
+                    font-size: 16px
+                    font-weight: 300
+                    line-height: 18px
+                    margin-bottom: 30px
+            .image
+                width: 100%
+                height: 100%
+                border: 1px solid black
+                img
+                    object-fit: cover
+                    width: 100%
+                    height: 100%
+            .caption_image
+                height: 24px
+                display: none
+                align-items: center

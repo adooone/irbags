@@ -1,17 +1,24 @@
+import { Icon } from '@material-ui/core';
+import classnames from 'classnames';
 import Logo from '../../Helpers/Logo/logo';
 import Menu from './Menu/menu';
 
 // import PropTypes from 'prop-types';
-// import classnames from 'classnames';
+import useGlobal from '../../../hooks/store';
+import { MENU_STORE } from '../../../constants/menuConsts';
 
 const Header = () => {
+    const [store] = useGlobal();
     return (
-        <header>
+        <header className={classnames({ half: store.selectedMenu === MENU_STORE })}>
             <section className='logo_section'>
                 <Logo />
                 <div className='name'>Inna Rybachuk</div>
             </section>
             <Menu />
+            <section className='mobile_menu'>
+                <Icon fontSize='small'>menu</Icon>
+            </section>
         </header>
     );
 };

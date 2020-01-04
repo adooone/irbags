@@ -1,15 +1,24 @@
 header
+    @media #{$media_phones}
+        // justify-content: center
     height: 40px
     width: 100%
     display: flex
     justify-content: space-between
     align-items: center
+    z-index: 500
     // background-color: $default
     // box-shadow: $box_shadow_1
+    &.half
+        .logo_section
+            opacity: .8
+            .name
+                opacity: 0
     .logo_section
         display: flex
         height: 40px
         align-items: center
+        transition: all .3s ease
         div
             margin-right: 6px
         .Logo
@@ -18,4 +27,13 @@ header
             text-transform: uppercase
             font-weight: bold
     .Menu
+        @media #{$media_phones}
+            display: none
         display: flex
+        height: 22px
+        align-items: center
+    .mobile_menu
+        display: none
+        @media #{$media_phones}
+            display: block
+

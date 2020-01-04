@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { brushsrc } from '../../../constants/imagesLinks';
 
-// import classnames from 'classnames';
 
 const IrButton = (props) => {
-    const { children } = props;
+    const { children, small } = props;
     return (
-        <div className='IrButton'>
+        <div
+            className={classnames('IrButton', { small })}
+        >
             <div className='btnbackground'>
                 <img src={brushsrc} alt='src' />
             </div>
@@ -17,8 +19,11 @@ const IrButton = (props) => {
 
 IrButton.propTypes = {
     children: PropTypes.string.isRequired,
+    small: PropTypes.bool,
 };
 
-IrButton.defaultProps = {};
+IrButton.defaultProps = {
+    small: false,
+};
 
 export default IrButton;
