@@ -15,22 +15,22 @@ const Menu = () => {
                 onClick={() => actions.selectMenu(MENU_HOME)}
                 selected={store.selectedMenu === MENU_HOME}
             >
-                Home
+                Головна
             </Button>
             <Button
                 onClick={() => actions.selectMenu(MENU_STORE)}
                 selected={store.selectedMenu === MENU_STORE}
             >
-                Store
+                Каталог
             </Button>
             <Button
                 onClick={() => actions.selectMenu(MENU_CONTACTS)}
                 selected={store.selectedMenu === MENU_CONTACTS}
             >
-                Contacts
+                Контакти
             </Button>
             <div className='vert_divider' />
-            <Button icon>shopping_basket</Button>
+            <Button icon>shopping-bag</Button>
         </div>
     );
 };

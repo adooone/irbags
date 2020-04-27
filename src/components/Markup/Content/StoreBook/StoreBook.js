@@ -1,25 +1,34 @@
-import { useEffect } from 'react';
+// import { useState } from 'react';
+import classnames from 'classnames';
+
 import Fade from '../../../Helpers/Motions/fade';
 import useGlobal from '../../../../hooks/store';
 import { MENU_STORE } from '../../../../constants/menuConsts';
-import Page from './Page/Page';
+import { VIEW_MODE_LIST } from '../../../../constants/storeConsts';
+import Bag from './View/Bag';
 import StoreMeta from '../../../../meta/StoreMeta';
+import Navigation from './View/Navigation';
 
 // import PropTypes from 'prop-types';
-// import classnames from 'classnames';
 
 const StoreBook = () => {
-    const [store, actions] = useGlobal();
+    const [store] = useGlobal();
+    // const [viewLoaded, setViewLoaded] = useState(false);
 
-    useEffect(() => {
-        actions.setPaginationVisible(true);
-    }, []);
+    // useEffect(() => {
+    //     setViewVisible(store.viewMode === VIEW_MODE_LIST);
+    // }, [store.viewMode]);
 
     const selected = store.selectedMenu === MENU_STORE;
     return (
-        <Fade className='StoreBook' open={selected}>
-            {/* <div className='label'>StoreBook</div> */}
-            {_.map(StoreMeta.sections[0].pages, (page) => <Page key={page.index} data={page} />)}
+        <Fade className={classnames('StoreBook', { selected })} open={selected}>
+            <div className={classnames('StoreView', { hidden: store.viewMode === VIEW_MODE_LIST })}>
+                <Bag
+                    data={StoreMeta.sections[0].bags[0]}
+                    // onLoad={setViewLoaded}
+                />
+            </div>
+            <Navigation items={StoreMeta.sections[0].bags} />
         </Fade>
     );
 };

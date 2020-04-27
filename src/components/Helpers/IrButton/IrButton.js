@@ -4,10 +4,14 @@ import { brushsrc } from '../../../constants/imagesLinks';
 
 
 const IrButton = (props) => {
-    const { children, small } = props;
+    const {
+        children, small, className, onClick,
+    } = props;
     return (
         <div
-            className={classnames('IrButton', { small })}
+            className={classnames('IrButton', { small }, className)}
+            onClick={onClick}
+            role='presentation'
         >
             <div className='btnbackground'>
                 <img src={brushsrc} alt='src' />
@@ -20,10 +24,14 @@ const IrButton = (props) => {
 IrButton.propTypes = {
     children: PropTypes.string.isRequired,
     small: PropTypes.bool,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 IrButton.defaultProps = {
     small: false,
+    className: '',
+    onClick: () => {},
 };
 
 export default IrButton;

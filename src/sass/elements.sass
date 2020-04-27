@@ -2,6 +2,7 @@
     @extend .flex_center
     width: 150px
     height: 52px
+    cursor: pointer
     &.small
         width: 80px
         height: 30px
@@ -22,12 +23,12 @@
             height: 100%
     .btntext
         color: $default
-        font-weight: bold
+        font-weight: 500
         @media #{$media_large}
             font-size: 21px
         @media #{$media_phones}
             font-size: 14px
-        font-size: 18px
+        font-size: 16px
 
 .Button
     position: relative
@@ -36,12 +37,21 @@
     display: flex
     height: 35px
     z-index: 100
+    &.icon
+        display: flex
+        justify-content: center
+        width: 35px
     &:hover
         .btncircle
             opacity: 1
             transform: translateY(0px)
+        .iconncircle
+            opacity: 1
     &.selected
         .btncircle
+            opacity: 1
+            transform: translateY(0px)
+        .iconncircle
             opacity: 1
             transform: translateY(0px)
     &.clicked
@@ -50,8 +60,26 @@
         .btncircle
             opacity: 0
             transform: translateY(0) translateX(-20px) scale(3)
+        .iconncircle
+            // opacity: 0
+            transform: scale(.8)
     .btntext
         transition: all .3s ease
+    .iconncircle
+        position: absolute
+        width: 100%
+        height: 100%
+        border-radius: 100%
+        background-color: $secondary
+        left: 0
+        top: 0
+        opacity: 0
+        transition: all .2s ease
+        z-index: -1
+        // box-shadow: $box_shadow_1
+        &.clicked
+            opacity: 0
+            transform: translateY(0) translateX(-20px) scale(3)
     .btncircle
         position: absolute
         margin: 7.5px
@@ -64,13 +92,8 @@
         opacity: 0
         transition: all .3s ease
         transform: translateY(-20px)
-        z-index: -1  
+        z-index: -1
         &.clicked
-            // border-radius: 5px
-            // margin: 0
-            // right: 0
-            // width: 100%
-            // height: 100%
             opacity: 0
             transform: translateY(0) translateX(-20px) scale(3)
     .btn_img_circle
@@ -83,7 +106,7 @@
         opacity: 0
         transition: all .3s ease
         transform: translateY(-20px)
-        z-index: -1         
+        z-index: -1
         img
             object-fit: cover
             height: 100%

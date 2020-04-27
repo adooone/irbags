@@ -18,7 +18,7 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-    size: 41,
+    size: 36,
     //
 };
 

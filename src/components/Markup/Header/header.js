@@ -13,7 +13,8 @@ const Header = () => {
         <header className={classnames({ half: store.selectedMenu === MENU_STORE })}>
             <section className='logo_section'>
                 <Logo />
-                <div className='name'>Inna Rybachuk</div>
+                <div className='name'>Інна Рибачук</div>
+                <div className='info'>Сумки ручної роботи</div>
             </section>
             <Menu />
             <section className='mobile_menu'>

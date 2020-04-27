@@ -21,13 +21,11 @@ const Home = () => {
                 <img src={homeImgWinter} alt='homeimg' />
             </div>
             <div className='label'>
-                <div className='caption'>Handmade bags</div>
-                <div className='info'>Beautiful handmade bags made with love special for you.</div>
-                <div className='inspired'>Inspred by nature…</div>
-                <IrButton>Go to store</IrButton>
+                <div className='caption'>Крафтові сумки</div>
+                <div className='info'>Такі класні та файні. Дітям та дорослим, в школу чи в магазин, та просто для гарного настрою.</div>
+                <div className='inspired'>Запрошуємо…</div>
+                <IrButton>Завітати</IrButton>
             </div>
-            <div id='radial_g' />
-            <canvas id='home_canvas' />
         </div>
     );
 };

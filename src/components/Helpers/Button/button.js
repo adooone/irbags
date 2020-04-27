@@ -4,7 +4,8 @@ import {
     useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '@material-ui/core';
+// import { Icon } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import mojs from '@mojs/core';
 import classnames from 'classnames';
 
@@ -14,7 +15,6 @@ const Button = ({
     children, icon, onClick, selected,
 }) => {
     const buttonRef = useRef(null);
-    const circleRef = useRef(null);
 
     const [btnPos, setPos] = useState({});
     const [clicked, setClicked] = useState(false);
@@ -24,38 +24,30 @@ const Button = ({
         const btnX = position.x;
         if (btnX !== btnPos) setPos(btnX);
     });
-
-    const onMouseMove = () => {
-        // console.log(btnPos);
-        // console.log(e.pageX);
-    };
     const onBtnClick = () => {
         setClicked(true);
         onClick();
-        setTimeout(() => { setClicked(false); }, 1000);
+        setTimeout(() => { setClicked(false); }, icon ? 200 : 1000);
         // console.log(e.pageX);
     };
 
-    const renderIconBtn = () => <Icon>{children}</Icon>;
+    const renderIconBtn = () => (
+        <>
+            <FontAwesomeIcon icon={children} />
+            <div className='iconncircle' />
+        </>
+    );
     const renderTextBtn = () => (
         <>
             <div className='btntext'>{children}</div>
-            <div
-                className='btncircle'
-                // className={classnames('btncircle', { clicked })}
-                ref={circleRef}
-            />
-            {/* <img src={circlesrc} alt='circle' />
-            </div> */}
+            <div className='btncircle' />
         </>
     );
     return (
         <button
             ref={buttonRef}
             type='button'
-            className={classnames('Button', { clicked, selected })}
-            onMouseMove={onMouseMove}
-            // onMouseOver={() => { console.log('over'); }}
+            className={classnames('Button', { clicked, selected, icon })}
             onFocus={() => { }}
             onClick={onBtnClick}
         >

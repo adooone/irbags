@@ -13,7 +13,7 @@ const Loader = () => {
             className='Loader'
         >
             <img src={birdgif} alt='Loading' />
-            <div className='load_text'>Loading...</div>
+            <div className='load_text'>Зачекайте...</div>
         </Fade>
     );
 };

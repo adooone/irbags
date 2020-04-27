@@ -9,23 +9,26 @@ header
     z-index: 500
     // background-color: $default
     // box-shadow: $box_shadow_1
-    &.half
-        .logo_section
-            opacity: .8
-            .name
-                opacity: 0
     .logo_section
         display: flex
         height: 40px
         align-items: center
         transition: all .3s ease
         div
-            margin-right: 6px
+           margin-right: 10px
         .Logo
             margin-top: 6px
         .name
+            font-size: 18px
             text-transform: uppercase
-            font-weight: bold
+            font-weight: 500
+        .info
+            font-family: 'Indie Flower', Caveat
+            font-size: 20px
+            font-weight: 300
+            // margin-left: 10px
+            opacity: .5
+            // text-transform: uppercase
     .Menu
         @media #{$media_phones}
             display: none
