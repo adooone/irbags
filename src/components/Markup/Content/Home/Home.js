@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 // import PropTypes from 'prop-types';
 // import classnames from 'classnames';
 
-import { homeImgWinter } from '../../../../constants/imagesLinks';
+import { homeImgSpring } from '../../../../constants/imagesLinks';
 import IrButton from '../../../Helpers/IrButton/IrButton';
 import HomeCanvas from './canvas';
-// import useGlobal from '../../../../hooks/store';
+import { MENU_STORE } from '../../../../constants/menuConsts';
+import useGlobal from '../../../../hooks/store';
 
 const Home = () => {
-    // const [store, actions] = useGlobal();
+    const [, actions] = useGlobal();
     const didMount = () => {
         HomeCanvas.start();
     };
@@ -18,13 +19,13 @@ const Home = () => {
     return (
         <div className='Home'>
             <div className='home_image'>
-                <img src={homeImgWinter} alt='homeimg' />
+                <img src={homeImgSpring} alt='homeimg' />
             </div>
             <div className='label'>
                 <div className='caption'>Крафтові сумки</div>
                 <div className='info'>Такі класні та файні. Дітям та дорослим, в школу чи в магазин, та просто для гарного настрою.</div>
                 <div className='inspired'>Запрошуємо…</div>
-                <IrButton>Завітати</IrButton>
+                <IrButton onClick={() => actions.selectMenu(MENU_STORE)}>Завітати</IrButton>
             </div>
         </div>
     );

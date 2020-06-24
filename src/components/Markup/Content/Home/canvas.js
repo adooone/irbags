@@ -8,7 +8,9 @@ const HomeCanvas = (() => {
     let scene;
     let camera;
     let geometry;
+    // let geometry2;
     let material;
+    let material2;
     // let cube;
 
     // const materials = [];
@@ -70,16 +72,32 @@ const HomeCanvas = (() => {
     const snowInit = () => {
         canvas = document.querySelector('#home_canvas');
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
-        camera.position.z = 1300;
+        camera.position.z = 1000;
         scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x777777, 0.0008);
+        scene.fog = new THREE.FogExp2(0xecb7b788, 0.00008);
+        // scene.fog = new THREE.Fog(0xffffff, 1, 1000);
 
         geometry = new THREE.BufferGeometry();
-        const texture = new THREE.TextureLoader().load('https://i.imgur.com/Q1UmfAw.png');
+        // geometry2 = new THREE.BufferGeometry();
+        const texture = new THREE.TextureLoader().load('https://i.imgur.com/Vgt7EcZ.png');
+        const texture2 = new THREE.TextureLoader().load('https://i.imgur.com/Vgt7EcZ.png');
+        texture2.rotation = 1;
+        texture2.center = new THREE.Vector2(0.5, 0.5);
+        // const texture = new THREE.TextureLoader().load('https://i.imgur.com/Q1UmfAw.png');
         material = new THREE.PointsMaterial({
             color: 0xffffff,
-            size: 15,
+            // size: 15, winter
+            size: 25,
             map: texture,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthTest: false,
+        });
+        material2 = new THREE.PointsMaterial({
+            color: 0xffffff,
+            // size: 15, winter
+            size: 25,
+            map: texture2,
             transparent: true,
             blending: THREE.AdditiveBlending,
             depthTest: false,
@@ -87,7 +105,7 @@ const HomeCanvas = (() => {
         const vertices = [];
 
         // eslint-disable-next-line no-plusplus
-        for (let i = 0; i < 7000; i++) {
+        for (let i = 0; i < 200; i++) {
             const x = Math.random() * 2000 - 1000;
             const y = Math.random() * 2000 - 1000;
             const z = Math.random() * 2000 - 1000;
@@ -98,10 +116,15 @@ const HomeCanvas = (() => {
 
 
         const particles = new THREE.Points(geometry, material);
+        const particles2 = new THREE.Points(geometry, material2);
         particles.rotation.x = Math.random() * 6;
         particles.rotation.y = Math.random() * 6;
         particles.rotation.z = Math.random() * 6;
+        particles2.rotation.x = Math.random() * 6;
+        particles2.rotation.y = Math.random() * 6;
+        particles2.rotation.z = Math.random() * 6;
         scene.add(particles);
+        scene.add(particles2);
 
         renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
         // console.log(canvas.);

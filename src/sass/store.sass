@@ -23,48 +23,113 @@
         position: absolute
         right: 0
         height: 100%
-        width: 35%
+        width: 100%
         padding: 20px
         box-sizing: border-box
         display: flex
         flex-direction: column
+        align-items: flex-end
         transition: all .4s ease
+        z-index: 10
         &.table
             width: 100%
-            height: 100%
+            z-index: 30
+            // height: 100%
             .nav_list_toolbar
                 background: none
                 box-shadow: none
+                width: 100%
             .nav_list
-                flex-direction: row
-                flex-wrap: wrap
-                justify-content: space-between
-                // background: none
-                // box-shadow: none
-                padding: 20px 60px
-                .nav_item
-                    // flex-grow: 1
-                    height: 220px
-                    width: 220px
+                opacity: 0
+            .nav_grid
+                transform: translateY(0)
+        .nav_grid
+            position: absolute
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            top: 80px
+            left: 0
+            width: 100%
+            opacity: 0
+            transform: translateY(200px)
+            animation: loading_grid .2s ease
+            animation-fill-mode: forwards
+            // animation-delay: .1s
+            // height: 100%
+            padding-bottom: 120px
+            .nav_item
+                position: relative
+                width: 300px
+                height: 300px
+                // background: darken($default, 2)
+                background: linear-gradient(darken($default, 2), darken($default, 0))
+                margin: 15px
+                border-radius: 10px
+                overflow: hidden
+                box-shadow: inset $box_shadow_2
+                border: 2px solid transparentize($secondary, 1)
+                transition: all .1s ease
+                &:hover
+                    border: 2px solid transparentize($secondary, 0)
+                    background: linear-gradient(transparentize($secondary, .8), darken($default, 0))
+                    // background: transparentize($secondary, .8)
+                    .nav_info
+                        transform: translateY(-10px)
+                        box-shadow: $box_shadow_1, $box_shadow_0
+                    .nav_show_tools
+                        opacity: 1
+                .nav_show_tools
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 40px
+                    padding-left: 20px
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    opacity: 0
+                    color: transparentize($dark, .4)
+                    font-size: 16px
+                    font-family: Caveat
+                    transition: all .3s ease
+                    box-sizing: border-box
+                .nav_info
+                    position: absolute
+                    bottom: 0
+                    width: 280px
+                    height: 40px
+                    display: flex
                     flex-direction: row
                     align-items: center
-                    justify-content: center
-                    background: darken($default, 0)
+                    justify-content: space-between
+                    background: transparentize(lighten($default, 4), .6)
+                    border-radius: 10px
+                    box-sizing: border-box
                     margin: 10px
-                    .nav_info
-                        height: 80px
-                        display: none
-                        flex-direction: column
-                        justify-content: center
-                        align-items: center
-                        bottom: 0
-                        width: 100%
-                        margin: 0
-                    .nav_image
-                        width: 120%
-                        height: 120%
-                        img
-                            object-fit: contain
+                    box-shadow: $box_shadow_1
+                    padding: 0 20px
+                    backdrop-filter: blur(15px)
+                    border: 1px solid transparentize($secondary, 1)
+                    transition: all .2s ease
+                    .nav_caption
+                        font-size: 18px
+                        font-weight: 900
+                    .nav_price
+                        // display: none
+                .nav_image
+                    width: 100%
+                    height: 100%
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    img
+                        transition: all .2s ease
+                        width: 140%
+                        height: 140%
+                        object-fit: contain
+                        // transform: scale(1.1)
         .nav_list_toolbar
             @media #{$media_large}
                 padding: 0 40px
@@ -74,7 +139,7 @@
             top: 0
             left: 0
             // background: darken($default, 5)
-            width: 100%
+            width: 360px
             height: 60px
             padding: 10px 30px
             position: relative
@@ -84,7 +149,7 @@
             background: darken($default, 4)
             border-radius: 10px
             box-shadow: inset $box_shadow_2
-            transition: all .6s ease
+            // transition: all .6s ease
             .toolbar
                 display: flex
                 align-items: center
@@ -100,10 +165,12 @@
             flex-direction: column
             background: darken($default, 2)
             box-sizing: border-box
+            width: 360px
             // border: 1px solid $primary
             border-radius: 10px
             overflow: scroll
             box-shadow: inset $box_shadow_2
+            transition: all .3s ease
             .nav_item
                 @media #{$media_large}
                     height: 80px
@@ -114,10 +181,15 @@
                 align-items: center
                 border-radius: 10px
                 transition: all .3s ease
+                border: 2px solid transparentize($secondary, 1)
                 &:hover
                     background: lighten($default, 0)
                     cursor: pointer
                     box-shadow: $box_shadow_1
+                &.selected
+                    border: 2px solid transparentize($secondary, 0)
+                    background: lighten($default, 0)
+                    box-shadow: $box_shadow_1, inset $box_shadow_2
                 .nav_info
                     // text-transform: uppercase
                     margin-left: 10px
@@ -145,11 +217,12 @@
         align-items: center
         padding: 40px 40px 40px 0
         box-sizing: border-box
-        transition: all .6s ease
+        transition: all .2s ease
+        z-index: 20
         &.hidden
-            width: 0
+            // width: 0
             opacity: 0
-            transform: translateX(-400px)
+            transform: translateX(-100px) scale(.9)
             .info_group
                 opacity: 0
         .Bag
@@ -285,4 +358,12 @@
   0%
     opacity: 0
   100%
+    opacity: 1
+
+@keyframes loading_grid
+  0%
+    transform: translateY(100px)
+    opacity: 0
+  100%
+    transform: translateY(0px)
     opacity: 1

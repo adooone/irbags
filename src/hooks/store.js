@@ -1,11 +1,13 @@
 import globalHook from 'use-global-hook';
-import { VIEW_MODE_GALLARY } from '../constants/storeConsts';
+import { VIEW_MODE_LIST } from '../constants/storeConsts';
 
 const initialState = {
     loading: true,
     selectedMenu: 'home',
     paginationVisible: false,
-    viewMode: VIEW_MODE_GALLARY,
+    viewMode: VIEW_MODE_LIST,
+    appScrolled: false,
+    selectedBag: null,
 };
 
 const actions = {
@@ -20,6 +22,12 @@ const actions = {
     },
     setViewMode: (store, value) => {
         store.setState({ viewMode: value });
+    },
+    setScrolled: (store, value) => {
+        store.setState({ appScrolled: value });
+    },
+    selectBag: (store, value) => {
+        store.setState({ selectedBag: value });
     },
 };
 

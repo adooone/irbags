@@ -7,5 +7,5 @@ export const POS_RIGHT = 'right';
 export const BACKGROUND_PRIMARY = 'primary';
 export const BACKGROUND_SECONDARY = 'secondary';
 
-export const VIEW_MODE_GALLARY = 'gallary';
+export const VIEW_MODE_GRID = 'gallary';
 export const VIEW_MODE_LIST = 'list';
